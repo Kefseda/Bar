@@ -1,0 +1,37 @@
+public partial class MainWindow : Window
+    {
+        string[] imgLinks = new string[] { "C:/Users/student/source/repos/WpfApp4/Resources/DishImg1.jpg",
+                                           "C:/Users/student/source/repos/WpfApp4/Resources/DishImg2.jpg",
+                                           "C:/Users/student/source/repos/WpfApp4/Resources/DishImg3.jpg",
+                                           "C:/Users/student/source/repos/WpfApp4/Resources/DishImg4.jpg"};
+
+        string[] name = new string[] { "шашлык с картошкой",
+                                       "хотдог с фрикаделями",
+                                       "кальмарные пучки",
+                                       "БурГИр"};
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            int cost = new Random().Next(1, 100);
+            CreateHavchik(imgLinks[0],name[0],cost);
+            cost = new Random().Next(1, 100);
+            CreateHavchik(imgLinks[1], name[1], cost);
+            cost = new Random().Next(1, 100);
+            CreateHavchik(imgLinks[2], name[2], cost);
+            cost = new Random().Next(1, 100);
+            CreateHavchik(imgLinks[3], name[3], cost);
+        }
+        public void CreateHavchik(string link,string n,int cost) //create dish
+        {
+            Frame frame = new Frame();
+            Dish havchik = new Dish();
+
+            frame.Content = havchik;
+
+            havchik.SetInfo(link,n,cost + "$");
+
+            frame.Padding = new Thickness(10,10,0,0);
+            DishePages.Children.Add(frame);
+        }
+    }

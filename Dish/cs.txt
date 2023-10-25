@@ -1,0 +1,10 @@
+public Dish()
+        {
+            InitializeComponent();
+        }
+        public void SetInfo(string link,string name,string cost)
+        {
+            Preview.Source = new BitmapImage(new Uri(link));
+            Name.Text = name;
+            Cost.Text = "цена: " + cost;
+        }
